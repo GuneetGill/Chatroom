@@ -1,0 +1,37 @@
+<!-- extends base template from base.html file -->
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<form method="post" class="buttons">
+  <h3>Enter The Chat Room</h3>
+
+  <div>
+    <label>Name:</label>
+    <!-- passing in name user passed into code -->
+    <input
+      type="text"
+      placeholder="Pick a name!"
+      name="name"
+      value="{{name}}"
+      id = "message"
+      class = "btn"
+    />
+  </div>
+
+  <!-- passing in room code -->
+  <div class="join">
+    <input type="text" placeholder="Room Code" name="code" value="{{code}}" class = "btn" />
+    <button type="submit" name="join" class = "btn">Join a Room</button>
+  </div>
+
+  <button type="submit" name="create" class="btn">Create a Room</button>
+
+  <!-- if we have error then display error -->
+  {% if error %}
+  <ul>
+    <li>{{error}}</li>
+  </ul>
+  {% endif %}
+</form>
+{% endblock %}
